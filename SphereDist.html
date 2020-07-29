@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SphereDist.html</title>
+        <script src="./SphereDist.js"></script>
+        <script>
+            var sd = new SphereDist();
+            function loaded() {
+                document.getElementById("version").innerHTML = sd.version;
+            }
+            function clicked() {
+                sd.N = document.getElementById("mytext").value;
+                sd.generate();
+                var text = sd.get_text();
+                document.getElementById("mytextarea").value = text;
+            }
+        </script>
+    </head>
+    <body onload="javascript:loaded()">
+        <p id="version"></p>
+        <p>
+            N: <input type="text" id="mytext" value="100" /> (&gt;= 6)
+        </p>
+        <p>
+            <textarea id="mytextarea" rows="20" cols="65"></textarea>
+        </p>
+        <p>
+            <input type="button" value="Click me!" onclick="javascript:clicked()" />
+        </p>
+    </body>
+</html>
